@@ -48,7 +48,7 @@ def connect_users
     user = User.find("user_id: #{user_id}").first
     puts "found user #{user} (#{user_id})"
     new_tx if (user_id % 1000) == 0
-    FRIEND_SIZE.times do 
+    FRIEND_SIZE.times do
       friend_user_id = (rand * SIZE).to_int
       next if friend_user_id == user_id
       other_user = User.find("user_id: #{friend_user_id}").first

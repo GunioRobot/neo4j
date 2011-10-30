@@ -182,7 +182,7 @@ module Neo4j
       def converters=(converters)
         @converters = converters
       end
-      
+
       # Always returns a converter that handles to_ruby or to_java
       def converter(type = nil)
         @converters ||= begin

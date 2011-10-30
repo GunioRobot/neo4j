@@ -102,9 +102,9 @@ module Neo4j
         #
         def find(*args, &block)
           return super(*args, &block) if block
-          
+
           case args.first
-            when :all, :first          
+            when :all, :first
               kind = args.shift
               send(kind, *args)
             when "0", 0
@@ -115,7 +115,7 @@ module Neo4j
               else
                 first(*args)
               end
-          end          
+          end
         end
 
         # Same as #find except that it returns an Enumerator of all nodes found.
@@ -133,7 +133,7 @@ module Neo4j
           if result = all(*args)
             if result.respond_to?(:collect) #if it's enumerable, get the first result
               result.first
-            else 
+            else
               result
             end
           else
@@ -176,14 +176,14 @@ module Neo4j
         def to_s
           "Node dir: #{@dir}, #{@storage}"
         end
-        
+
         protected
 
 
         def find_by_id(*args)
-          result = Enumerator.new(@storage, :each_node, @dir).find{|n| n.id.to_i == args.first.to_i}        
+          result = Enumerator.new(@storage, :each_node, @dir).find{|n| n.id.to_i == args.first.to_i}
         end
-   
+
       end
     end
   end

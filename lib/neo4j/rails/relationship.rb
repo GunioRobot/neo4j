@@ -39,11 +39,11 @@ module Neo4j
 
 
       alias_method :get_other_node, :other_node # so it looks like the java version
-      
+
       def to_s
         "id: #{self.object_id}  start_node: #{start_node.id} end_node: #{end_node.id} type:#{@type}"
       end
-      
+
       def id
         _java_rel.nil? || neo_id.nil? ? nil : neo_id.to_s
       end
@@ -107,7 +107,7 @@ module Neo4j
         def _all
           _indexer.find(:_classname => self)
         end
-        
+
         def load(*ids) # TODO Copied from finders.rb
           result = ids.map { |id| entity_load(id) }
           if ids.length == 1

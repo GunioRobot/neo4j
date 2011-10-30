@@ -60,7 +60,7 @@ describe Neo4j::Node, :type => :transactional do
     a.rel?(:foo, :incoming).should be_false
     a.rel?(:foo, :outgoing).should be_true
   end
-  
+
   it "#rels should return both incoming and outgoing relationship of any type of depth one" do
     a, b, c, d, e, f = create_nodes
     b.rels.size.should == 5

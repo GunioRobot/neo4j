@@ -17,7 +17,7 @@ module Neo4j
     class Mapping
       include Enumerable
       include WillPaginate::Finders::Base
-      
+
       include ToJava
 
       def initialize(node, dsl) # :nodoc:
@@ -95,7 +95,7 @@ module Neo4j
       # Creates a relationship between this and the other node.
       #
       # ==== Example
-      # 
+      #
       #   n1 = Node.new # Node has declared having a friend type of relationship
       #   n2 = Node.new
       #   n3 = Node.new

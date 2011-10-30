@@ -28,7 +28,7 @@ module Neo4j
     def wrapped_entity  #:nodoc:
       self
     end
-    
+
     def wrapper  #:nodoc:
       self.class.wrapper(self)
     end
@@ -105,7 +105,7 @@ module Neo4j
     # :method: _java_node
     # Returns the java node/relationship object representing this object unless it is already the java object.
     # This method is  defined in the  org.neo4j.kernel.impl.core.NodeProxy which is return by Neo4j::Node.new
-    
+
     class << self
 
       # Returns a new neo4j Node.

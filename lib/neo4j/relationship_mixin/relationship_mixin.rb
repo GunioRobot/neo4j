@@ -122,7 +122,7 @@ module Neo4j
             alias_method :orig_new, :new
           end
         end
-        
+
         c.class_inheritable_accessor :_decl_props
         c._decl_props ||= {}
 

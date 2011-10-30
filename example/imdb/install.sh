@@ -5,7 +5,7 @@
 
 mkdir data
 cp *.gz data
-cd data 
+cd data
 
 gunzip test-actors.list.gz
 gunzip test-movies.list.gz

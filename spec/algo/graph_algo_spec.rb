@@ -68,7 +68,7 @@ describe Neo4j::Algo, :type => :transactional do
       Neo4j::Relationship.new(:friends, @b, @y)[:weight] =  10.2
       Neo4j::Relationship.new(:friends, @c, @y)[:weight] = 1.2
     end
-    
+
     it "cost_evaluator{|rel,*| rel[:weight]} returns the shortest path given the weight property of the relationships" do
       res = Neo4j::Algo.dijkstra_path(@x,@y).cost_evaluator{|rel,*| rel[:weight]}
       res.should include(@x,@b,@c,@y)

@@ -254,7 +254,7 @@ describe Neo4j::Migrations::NodeMixin do
         end
 
         finish_tx
-        
+
         clazz.migration 1, :foo do
           up { }
           down { }

@@ -91,7 +91,7 @@ module Neo4j
 
             field                     = field.to_s
             @via_relationships[field] = rel_dsl
-            via_indexer.index(field, conf_no_via) 
+            via_indexer.index(field, conf_no_via)
           else
             @field_types[field.to_s] = conf[:type] || :exact
           end
@@ -226,7 +226,7 @@ module Neo4j
       # (by Rack).
       #
       # === Example, with a block
-      #   
+      #
       #   Person.find('name: kalle') {|query| puts "#{[*query].join(', )"}
       #
       # ==== Example

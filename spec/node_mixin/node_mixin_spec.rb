@@ -39,7 +39,7 @@ end
 describe Neo4j::NodeMixin, :type=> :transactional do
 
   before(:each) do
-    SimpleNode.index(:city)  
+    SimpleNode.index(:city)
   end
 
   after(:each) do

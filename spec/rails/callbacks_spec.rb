@@ -4,9 +4,9 @@ module Neo4j
   module Rails
     class CallbacksTestModel < Neo4j::Rails::Model
       property :name
-      
+
       before_validation :downcase_name
-      
+
       private
       def downcase_name
         self.name.downcase!

@@ -42,13 +42,13 @@ describe Neo4j::NodeMixin, "find", :type => :transactional do
       res.should include(@x50,@x51)
       res.should_not include(@x49,@x52,@x53)
     end
-    
+
     it "find(:month=> 2..5, :day => 11...14) finds nodes matching both conditions" do
       res = [*@clazz.find(:month=> 2..5, :day => 11...14)]
       res.should include(@x50,@x51)
       res.should_not include(@x49,@x52,@x53)
     end
-    
+
   end
 
 
@@ -282,7 +282,7 @@ describe Neo4j::NodeMixin, "find", :type => :transactional do
       @clazz.find('city: malmoe').first.should_not == n
       @clazz.find('city: stockholm').first.should == n
     end
-    
+
     it "can index and search on two properties if index has the same type" do
       c = Car.new(:wheels => 4, :colour => 'blue')
       new_tx

@@ -11,7 +11,7 @@ module Neo4j
         AttributesTestModel.create!(:name => "Test")
         AttributesTestModel.last
       end
-      
+
       it "should be possible to set attribute as nil before accessing it in a freshly loaded model" do
         subject.name = nil
         subject.name.should be_nil

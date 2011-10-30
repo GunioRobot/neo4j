@@ -218,7 +218,7 @@ describe Neo4j::Batch::Indexer do
 
       index_provider                       = mock("index provider")
       Neo4j::Batch::Indexer.index_provider = index_provider
-      
+
       index                 = mock("exact index")
       setup_index_provider(index_provider,{clazz => index})
 

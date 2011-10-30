@@ -70,7 +70,7 @@ end
 class Film < Neo4j::Rails::Model
   property :title
   index :title
-  
+
   def self.create(title)
     super(:title => title)
   end

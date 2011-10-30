@@ -13,9 +13,9 @@ end
 
 describe "finders" do
 	subject { FindableModel.create!(:name => "Test 1", :age => 4241) }
-		
+
 	before(:each) do
-		@test_0 = FindableModel.create!(:name => "Test 0")    
+		@test_0 = FindableModel.create!(:name => "Test 0")
 		@test_2 = FindableModel.create!(:name => "Test 2")
 		@test_3 = FindableModel.create!(:name => "Test 3", :age => 3)
 		@test_4 = FindableModel.create!(:name => "Test 1")
@@ -157,7 +157,7 @@ describe "finders" do
     it "#paginate(:all, query, :per_page => , :page=>, :sort=>)" do
       it_should_be_sorted([0,1,2,3], FindableModel.paginate(:all, 'name: Test*', :page => 1, :per_page => 5, :sort => {:name => :asc}))
       it_should_be_sorted([0,1], FindableModel.paginate(:all, 'name: Test*', :page => 1, :per_page => 2, :sort => {:name => :asc}))
-      it_should_be_sorted([2,3], FindableModel.paginate(:all, 'name: Test*', :page => 2, :per_page => 2, :sort => {:name => :asc}))      
+      it_should_be_sorted([2,3], FindableModel.paginate(:all, 'name: Test*', :page => 2, :per_page => 2, :sort => {:name => :asc}))
       it_should_be_sorted([3,2,1,0], FindableModel.paginate(:all, 'name: Test*', :page => 1, :per_page => 5, :sort => {:name => :desc}))
     end
 
@@ -182,7 +182,7 @@ describe "finders" do
     expectation.reverse! if order == :desc
     res.should == expectation
   end
-  
+
 	context "for single records" do
 		subject { @test_2 }
 

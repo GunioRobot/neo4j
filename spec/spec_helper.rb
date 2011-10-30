@@ -37,7 +37,7 @@ begin
 
   # ensure the translations get picked up for tests
   I18n.load_path += Dir[File.join(File.dirname(__FILE__), '..', 'config', 'locales', '*.{rb,yml}')]
-  
+
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
@@ -66,7 +66,7 @@ begin
       finish_tx
       Neo4j::Transaction.run do
         Neo4j._all_nodes.each { |n| n.del unless n.neo_id == 0 }
-      end 
+      end
     end
 
     c.before(:all) do

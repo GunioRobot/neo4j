@@ -55,7 +55,7 @@ module Neo4j
                     Neo4j::HasN::Mapping.new(self, dsl)
                 end}, __FILE__, __LINE__)
 
-        
+
         module_eval(%Q{
                 def #{rel_type}_rels
                     dsl = _decl_rels_for('#{rel_type}'.to_sym)

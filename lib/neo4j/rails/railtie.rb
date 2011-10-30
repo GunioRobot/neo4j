@@ -5,7 +5,7 @@ module Neo4j
     initializer "neo4j.tx" do |app|
       app.config.middleware.use Neo4j::Rails::LuceneConnectionCloser
     end
-    
+
     # Add ActiveModel translations to the I18n load_path
     initializer "i18n" do |app|
     	config.i18n.load_path += Dir[File.join(File.dirname(__FILE__), '..', '..', '..', 'config', 'locales', '*.{rb,yml}')]

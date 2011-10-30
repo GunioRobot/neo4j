@@ -88,12 +88,12 @@ module Neo4j
         else
           self.class.index_provider.relationship_index(indexer_for.index_names[type], index_config)
         end
-        
+
       end
 
       class << self
         attr_accessor :index_provider
-      
+
         def instance_for(clazz)
           @instances ||= {}
           @instances[clazz.to_s] ||= Indexer.new(clazz._indexer)

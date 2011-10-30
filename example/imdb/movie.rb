@@ -42,7 +42,7 @@ class Movie
 
   index :title
   index :year
-  
+
   def to_s
     "Movie id:#{neo_id} title: '#{self.title}'"
   end

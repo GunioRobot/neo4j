@@ -6,7 +6,7 @@ Neo4j.config[:logger_level] = Logger::ERROR
 def find_actor(query_or_id)
   id           = query_or_id.to_i
   lucene_query = id == 0 && query_or_id
-  
+
   if lucene_query
     result = Actor.find(lucene_query)
     puts "Found #{result.size} actors"

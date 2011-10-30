@@ -132,7 +132,7 @@ describe "Neo4j::NodeMixin#list :events", :type => :transactional do
 
       describe "last" do
         it "returns nil" do
-          @root.events.last.should be_nil          
+          @root.events.last.should be_nil
         end
       end
 

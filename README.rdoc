@@ -103,7 +103,7 @@ Example of creating an Neo4j Application from scratch:
  open a webbrowser: http://localhost:3000/users
 
 To run it with Tomcat instead of WEBrick
-  
+
   gem install trinidad
   trinidad
 

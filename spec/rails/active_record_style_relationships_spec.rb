@@ -120,7 +120,7 @@ describe "Neo4j::Rails::Model Relationships" do
       it "find rels for a node, by node" do
         @actor.acted_in_rels.find(@movie_1).should_not be_nil
       end
-      
+
       it "find rels by id" do
         relid = @actor.acted_in_rels.find(@movie_1).id
         @actor.acted_in_rels.find(relid).should_not be_nil

@@ -3,7 +3,7 @@ require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 describe Neo4j::TypeConverters, :type => :transactional do
   context "my own converter that respond to #to_java and #to_ruby in the Neo4j::TypeConverters module" do
     before(:all) do
-      Neo4j::TypeConverters.converters = nil  # reset the list of converters since we have already started neo4j 
+      Neo4j::TypeConverters.converters = nil  # reset the list of converters since we have already started neo4j
 
       module Neo4j::TypeConverters
         class MyConverter
@@ -107,7 +107,7 @@ describe Neo4j::TypeConverters, :type => :transactional do
       v = @clazz.new :since => since
       v.since.should == since
     end
-    
+
     # Just to be compatible with the devise tests
     it "should be able to load Dates too" do
       since = Date.civil(1977)
@@ -132,14 +132,14 @@ describe Neo4j::TypeConverters, :type => :transactional do
       found.should include(v)
     end
   end
-  
+
   context Neo4j::TypeConverters::TimeConverter, "property :since => Time" do
     before(:all) do
       @clazz = create_node_mixin do
         property :since, :type => Time
       end
     end
-    
+
     # Just to be compatible with the devise tests
     it "should be able to load Dates too" do
       since = Date.civil(1977)

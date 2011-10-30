@@ -17,7 +17,7 @@ module Neo4j
 
       # Creates a new batch inserter.
       # Will raise an exception if Neo4j is already running at the same storage_path
-      # 
+      #
       def initialize(storage_path=Neo4j.config.storage_path, config={})
         # check if neo4j is running and using the same storage path
         raise "Not allowed to start batch inserter while Neo4j is already running at storage location #{storage_path}" if Neo4j.storage_path == storage_path
@@ -35,7 +35,7 @@ module Neo4j
         @batch_inserter && @batch_inserter.shutdown
         @batch_inserter = nil
         @rule_inserter = nil
-        
+
         Indexer.index_provider
         Indexer.index_provider && Indexer.index_provider.shutdown
         Indexer.index_provider = nil
@@ -107,7 +107,7 @@ module Neo4j
       def rel_props(rel)
         @batch_inserter.get_relationship_properties(rel)
       end
-      
+
       # Returns all the relationships of the given node
       def rels(node)
         @batch_inserter.getRelationships(node)

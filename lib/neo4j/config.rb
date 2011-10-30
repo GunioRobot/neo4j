@@ -80,8 +80,8 @@ module Neo4j
         yield @configuration
         nil
       end
-      
-      
+
+
       # Set the value of a config entry.
       #
       # ==== Parameters

@@ -123,7 +123,7 @@ describe Neo4j::Batch::Inserter do
       @inserter.node_props(@id)['_classname'].should == @clazz.to_s
     end
   end
-  
+
   context "#ref_node" do
     it "returns the reference node" do
       @inserter = Neo4j::Batch::Inserter.new
@@ -144,7 +144,7 @@ describe Neo4j::Batch::Inserter do
       @inserter.rels(@node_a).size.should == 1
     end
 
-    
+
     it "#rels(node_a).first returns a simple relationship responding to get_start_node, get_end_node and get_type"  do
       rel = @inserter.rels(@node_a).first
       rel.get_start_node.should == @node_a
@@ -180,7 +180,7 @@ describe Neo4j::Batch::Inserter do
     before(:each) do
       @inserter = Neo4j::Batch::Inserter.new
     end
-    
+
     class MyBatchInsertedClass
       include Neo4j::NodeMixin
       rule(:all)

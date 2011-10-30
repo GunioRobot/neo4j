@@ -35,7 +35,7 @@ module Neo4j
       include Enumerable
       include ToJava
       include WillPaginate::Finders::Base
-      
+
 
       def initialize(node, name)
         @time_line = org.neo4j.index.timeline.Timeline.new(name, node._java_node, true, Neo4j.started_db.graph)

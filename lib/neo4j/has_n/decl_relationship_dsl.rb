@@ -63,7 +63,7 @@ module Neo4j
       def java_dir
         dir_to_java(@dir)
       end
-      
+
       def each_node(node, &block) #:nodoc:
         node._java_node.getRelationships(java_rel_type, java_dir).each do |rel|
           block.call(rel.getOtherNode(node).wrapper)

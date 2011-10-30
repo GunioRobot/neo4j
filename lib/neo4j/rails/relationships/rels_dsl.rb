@@ -110,7 +110,7 @@ module Neo4j
           return super(*args, &block) if block
 
           case args.first
-            when :all, :first          
+            when :all, :first
               kind = args.shift
               send(kind, *args)
             when "0", 0
@@ -121,7 +121,7 @@ module Neo4j
               else
                 first(*args)
               end
-            end                             
+            end
         end
 
         # Same as Neo4j::Rails::Relationships::NodesDSL#all except that it searches the relationships instead of
@@ -144,7 +144,7 @@ module Neo4j
           if result = all(*args)
             if result.respond_to?(:collect) #if it's enumerable, get the first result
               result.first
-            else 
+            else
               result
             end
           else
@@ -175,14 +175,14 @@ module Neo4j
         def node_in?(*args)
           # does it contain an string, which will be treated like a condition ?
           if args.find { |a| a.class.superclass == Neo4j::Rails::Model }
-            return true 
+            return true
           else
             return false
           end
         end
 
         def find_by_id(*args)
-          find{|r| r.id.to_i == args.first.to_i}       
+          find{|r| r.id.to_i == args.first.to_i}
         end
 
 

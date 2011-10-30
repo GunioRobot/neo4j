@@ -55,7 +55,7 @@ describe Neo4j::NodeMixin, "#has_n", :type => :transactional do
     end
   end
 
-  
+
   context "unspecified outgoing relationship, e.g. has_n(:friends)" do
     before(:all) do
       new_tx

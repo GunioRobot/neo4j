@@ -2,7 +2,7 @@ module Neo4j
 	module Rails
 		module Persistence
 			extend ActiveSupport::Concern
-			
+
 			included do
 				extend TxMethods
 				tx_methods :destroy, :create, :update, :update_nested_attributes, :delete
@@ -14,7 +14,7 @@ module Neo4j
       def save(*)
       	create_or_update
       end
-      
+
       # Persist the object to the database.  Validations and Callbacks are included
 			# by default but validation can be disabled by passing :validate => false
 			# to #save!.
@@ -25,7 +25,7 @@ module Neo4j
 					raise RecordInvalidError.new(self)
 				end
 			end
-			
+
 			# Updates a single attribute and saves the record.
 			# This is especially useful for boolean flags on existing records. Also note that
 			#
@@ -37,25 +37,25 @@ module Neo4j
 				respond_to?("#{name}=") ? send("#{name}=", value) : self[name] = value
 				save(:validate => false)
 			end
-			
+
 			# Removes the node from Neo4j and freezes the object.
 			def destroy
 				delete
 				freeze
 			end
-			
+
 			# Same as #destroy but doesn't run destroy callbacks and doesn't freeze
 			# the object
 			def delete
 				del unless new_record?
 				set_deleted_properties
 			end
-			
+
 			# Returns true if the object was destroyed.
 			def destroyed?()
         @_deleted || Neo4j::Node._load(id).nil?
       end
-			
+
 			# Updates this resource with all the attributes from the passed-in Hash and requests that the record be saved.
       # If saving fails because the resource is invalid then false will be returned.
       def update_attributes(attributes)
@@ -68,7 +68,7 @@ module Neo4j
         self.attributes = attributes
         save!
       end
-			
+
       # Reload the object from the DB.
       def reload(options = nil)
         clear_changes
@@ -85,14 +85,14 @@ module Neo4j
       def persisted?
         !new_record? && !destroyed?
       end
-      
+
       # Returns true if the record hasn't been saved to Neo4j yet.
       def new_record?
         _java_node.nil?
       end
-      
+
       alias :new? :new_record?
-      
+
       # Freeze the properties hash.
 			def freeze
 				@properties.freeze; self

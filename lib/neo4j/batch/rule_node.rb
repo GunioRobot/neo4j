@@ -37,7 +37,7 @@ module Neo4j
         props.each_pair{|k,v| hash[k]=v}
         hash
       end
-      
+
       def execute_filter(rule, props)
         if rule.filter.nil?
           true
